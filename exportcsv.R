@@ -1,0 +1,20 @@
+exportcsv <- function(p, append = FALSE, quote = TRUE, sep = ";", eol = "\n", 
+                      
+                      na = "NA", dec = ",", row.names = FALSE,
+                      col.names = TRUE, qmethod = c("escape", "double"),
+                      fileEncoding = "UTF-8") {
+  
+  
+  oldOpt <- options()
+  
+  options(csv.date.format="dd/MM/yyyy")
+  
+  
+  write.table(p, (paste(deparse(substitute(p)), ".csv")),
+              
+              append = append, quote = quote, sep = sep,
+              eol = eol, na = na, dec = dec, row.names = row.names,
+              col.names = col.names, qmethod = qmethod,
+              fileEncoding = fileEncoding)
+}
+
